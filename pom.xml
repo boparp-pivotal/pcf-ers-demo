@@ -10,7 +10,6 @@
 
 	<name>pcf-ers-demo1</name>
 	<description>Core PCF ERS Demo </description>
-<!-- Dummy Comment -->
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -18,6 +17,7 @@
 		<version>1.3.2.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+<!-- Dummy Comment -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
