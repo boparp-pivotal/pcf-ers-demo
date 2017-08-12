@@ -8,9 +8,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-<!-- Dummy Comment -->
 	<name>pcf-ers-demo1</name>
 	<description>Core PCF ERS Demo </description>
+<!-- Dummy Comment -->
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
