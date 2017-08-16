@@ -1,7 +1,8 @@
 ---
 applications:
 - name: attendees-bluegreen
-  host: vmw-attendees
+  domain: pcf.vmwdri.io
+  host: demo
   memory: 756M
   instances: 2
   path: target/pcf-ers-demo-0.0.1-SNAPSHOT.jar
