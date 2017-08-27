@@ -1,4 +1,11 @@
 ---
+resource_types:
+- name: cf-cli-resource
+  type: docker-image
+  source:
+    repository: pivotalpa/cf-cli-resource
+    tag: latest
+
 resources:
 - name: pcf-ers-demo
   type: git
@@ -25,15 +32,15 @@ resources:
     secret_access_key: {{s3-secret-access-key}}
     endpoint: {{s3-endpoint}}
 
-- name: cf
-  type: cf
+- name: cf-env
+  type: cf-cli-resource
   source:
     api: {{cf-api}}
     username: {{cf-username}}
     password: {{cf-password}}
-    organization: {{cf-org}}
-    space: {{cf-space}}
     skip_cert_check: true
+    org: {{cf-org}}
+    space: {{cf-space}}
 
 jobs:
 - name: unit-test
@@ -71,6 +78,9 @@ jobs:
   - get: version
   - task: prepare-integration
     file: pcf-ers-demo/ci/tasks/prepare-integration.yml
-  - put: cf
+  - put: cf-zero-downtime-push
+    resource: cf-env
     params:
-          manifest: prepare-integration/manifest.yml
+      command: zero-downtime-push
+      manifest: prepare-integration/manifest.yml
+
